@@ -7,12 +7,17 @@
     <link rel="stylesheet" href="style.css">
     <title>El Pollo Loco</title>
 </head>
-<body>
+<body onload="init()">
     
-    <canvas>
+    <canvas id="canvas" width="720" height="480">
 
     </canvas>
 
-    <script type="module" src="game.js"></script>
+    <script src="./scripts/models/world.class.js"></script>
+    <script src="./scripts/models/moveable-object.class.js"></script>
+    <script src="./scripts/models/cloud.class.js"></script>
+    <script src="./scripts/models/character.class.js"></script>
+    <script src="./scripts/models/chicken.class.js"></script>
+    <script src="game.js"></script>
 </body>
 </html>
