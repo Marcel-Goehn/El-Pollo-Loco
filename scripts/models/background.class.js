@@ -6,5 +6,5 @@ class Background extends MoveableObject{
         this.width = width;
         this.height = height;
         this.loadImage(path);
-    }
-}
+    };
+};

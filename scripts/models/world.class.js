@@ -3,9 +3,9 @@ class World {
     character = new Character(100, 100, 350, 150);
 
     enemies = [
-        new Chicken((200 + Math.random() * 500), 370, 70, 60),
-        new Chicken((200 + Math.random() * 500), 370, 70, 60),
-        new Chicken((200 + Math.random() * 500), 370, 70, 60)
+        new Chicken((200 + Math.random() * 500), 370, 70, 60, (0.15 + Math.random() * 0.25)),
+        new Chicken((200 + Math.random() * 500), 370, 70, 60, (0.15 + Math.random() * 0.25)),
+        new Chicken((200 + Math.random() * 500), 370, 70, 60, (0.15 + Math.random() * 0.25))
 ];
 
     clouds = new Cloud(Math.random() * 700, 0, 250, 500);
@@ -27,8 +27,8 @@ class World {
     drawWorld() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-        this.addToMap(this.clouds);
         this.addObjectsToMap(this.backgrounds);
+        this.addToMap(this.clouds);
         this.addObjectsToMap(this.enemies);
         this.addToMap(this.character);
 

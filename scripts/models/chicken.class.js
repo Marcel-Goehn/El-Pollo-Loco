@@ -1,6 +1,18 @@
 class Chicken extends MoveableObject{
-    constructor(x, y, height, width) {
+
+    chickensWalking = [
+        'assets/img/3_enemies_chicken/chicken_normal/1_walk/1_w.png',
+        'assets/img/3_enemies_chicken/chicken_normal/1_walk/2_w.png',
+        'assets/img/3_enemies_chicken/chicken_normal/1_walk/3_w.png'
+    ];
+
+    currentImage = 0;
+
+    constructor(x, y, height, width, speed) {
         super(x, y, height, width);
         this.loadImage("assets/img/3_enemies_chicken/chicken_normal/1_walk/1_w.png");
-    }
-}
+        this.loadImages(this.chickensWalking);
+        this.moveLeft(speed);
+        this.animateWalking(this.chickensWalking);
+    };
+};
