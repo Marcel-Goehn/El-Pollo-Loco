@@ -14,7 +14,7 @@ class Character extends MoveableObject {
         super(x, y, height, width, speed);
         this.loadImage("../../assets/img/2_character_pepe/2_walk/W-21.png");
         this.loadImages(this.imagesWalking);
-        this.characterAnimateWalking(this.imagesWalking)
+        this.characterAnimateWalking(this.imagesWalking);
     }
 
 
@@ -22,9 +22,11 @@ class Character extends MoveableObject {
 
         setInterval(() => {
             if (this.keyboard.RIGHT) {
+                this.otherDirection = false;
                 this.x += this.speed;
             }
             if (this.keyboard.LEFT) {
+                this.otherDirection = true;
                 this.x -= this.speed;
             }
         }, 1000 / 60);

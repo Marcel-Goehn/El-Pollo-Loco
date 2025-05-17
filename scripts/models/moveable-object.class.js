@@ -1,5 +1,6 @@
 class MoveableObject {
     imageCache = {};
+    otherDirection = false;
 
     constructor(x, y, height, width, speed) {
         this.x = x;
