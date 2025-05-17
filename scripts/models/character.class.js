@@ -21,18 +21,19 @@ class Character extends MoveableObject {
     characterAnimateWalking(imagesWalking) {
 
         setInterval(() => {
-            if (this.keyboard.RIGHT) {
+            if (this.world.keyboard.RIGHT) {
                 this.otherDirection = false;
                 this.x += this.speed;
-            }
-            if (this.keyboard.LEFT) {
+            };
+            if (this.world.keyboard.LEFT) {
                 this.otherDirection = true;
                 this.x -= this.speed;
-            }
+            };
+            this.world.cameraX = -this.x;
         }, 1000 / 60);
 
         setInterval(() => {
-            if (this.keyboard.RIGHT || this.keyboard.LEFT) {
+            if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
                 this.x += this.speed;
 
                 let i = this.currentImage % imagesWalking.length;
