@@ -39,7 +39,7 @@ class MoveableObject {
     };
 
 
-    moveLeft(speed) {
+    chickensAndCloudsMovingLeft(speed) {
         setInterval(() => {
             this.x -= speed;
         }, 1000 / 60);

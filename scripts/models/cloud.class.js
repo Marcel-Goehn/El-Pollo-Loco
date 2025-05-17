@@ -1,7 +1,7 @@
 class Cloud extends MoveableObject{
-    constructor(x, y, height, width) {
+    constructor(x, y, height, width, speed) {
         super(x, y, height, width);
         this.loadImage('../../assets/img/5_background/layers/4_clouds/full.png');
-        this.moveLeft();
+        this.chickensAndCloudsMovingLeft(speed);
     };
 };

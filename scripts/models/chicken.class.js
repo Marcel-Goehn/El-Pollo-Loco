@@ -12,7 +12,7 @@ class Chicken extends MoveableObject{
         super(x, y, height, width);
         this.loadImage("assets/img/3_enemies_chicken/chicken_normal/1_walk/1_w.png");
         this.loadImages(this.chickensWalking);
-        this.moveLeft(speed);
+        this.chickensAndCloudsMovingLeft(speed);
         this.animateWalking(this.chickensWalking);
     };
 };

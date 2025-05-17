@@ -8,7 +8,7 @@ class World {
         new Chicken((200 + Math.random() * 500), 370, 70, 60, (0.15 + Math.random() * 0.25))
 ];
 
-    clouds = new Cloud(Math.random() * 700, 0, 250, 500);
+    clouds = new Cloud(Math.random() * 700, 0, 250, 500, 0.15);
 
     backgrounds = [
         new Background(0, 480, 720, "../../assets/img/5_background/layers/air.png"),
@@ -17,11 +17,18 @@ class World {
         new Background(0, 400, 720, "../../assets/img/5_background/layers/1_first_layer/1.png")
     ];
 
-    constructor(canvas) {
+    constructor(canvas, keyboard) {
         this.ctx = canvas.getContext('2d');
         this.canvas = canvas;
+        this.keyboard = keyboard;
+        this.setWorld();
         this.drawWorld();
     };
+
+    
+    setWorld() {
+        this.character.keyboard = this.keyboard;
+    }
 
 
     drawWorld() {
