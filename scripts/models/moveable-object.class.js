@@ -1,11 +1,12 @@
 class MoveableObject {
     imageCache = {};
 
-    constructor(x, y, height, width) {
+    constructor(x, y, height, width, speed) {
         this.x = x;
         this.y = y;
         this.height = height;
         this.width = width;
+        this.speed = speed;
     };
 
     
@@ -39,9 +40,9 @@ class MoveableObject {
     };
 
 
-    chickensAndCloudsMovingLeft(speed) {
+    chickensAndCloudsMovingLeft() {
         setInterval(() => {
-            this.x -= speed;
+            this.x -= this.speed;
         }, 1000 / 60);
     };
 };

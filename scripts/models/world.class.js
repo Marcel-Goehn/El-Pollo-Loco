@@ -1,6 +1,6 @@
 class World {
 
-    character = new Character(100, 100, 350, 150);
+    character = new Character(100, 100, 350, 150, 5);
 
     enemies = [
         new Chicken((200 + Math.random() * 500), 370, 70, 60, (0.15 + Math.random() * 0.25)),
