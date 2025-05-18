@@ -21,20 +21,20 @@ class Character extends MoveableObject {
     characterAnimateWalking(imagesWalking) {
 
         setInterval(() => {
-            if (this.world.keyboard.RIGHT) {
+            if (this.world.keyboard.RIGHT && this.x < this.world.level.levelEndX) {
                 this.otherDirection = false;
                 this.x += this.speed;
             };
-            if (this.world.keyboard.LEFT) {
+            if (this.world.keyboard.LEFT && this.x > 0) {
                 this.otherDirection = true;
                 this.x -= this.speed;
             };
-            this.world.cameraX = -this.x;
+            this.world.cameraX = -this.x + 100;
         }, 1000 / 60);
 
         setInterval(() => {
             if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
-                this.x += this.speed;
+                // this.x += this.speed;
 
                 let i = this.currentImage % imagesWalking.length;
                 let path = imagesWalking[i];

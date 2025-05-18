@@ -1,9 +1,7 @@
 class World {
 
     character = new Character(100, 100, 350, 150, 5);
-    enemies = level1.enemies;
-    clouds = level1.clouds;
-    backgrounds = level1.backgrounds;
+    level = level1;
     cameraX = 0;
 
     constructor(canvas, keyboard) {
@@ -25,9 +23,9 @@ class World {
 
         this.ctx.translate(this.cameraX, 0);
 
-        this.addObjectsToMap(this.backgrounds);
-        this.addToMap(this.clouds);
-        this.addObjectsToMap(this.enemies);
+        this.addObjectsToMap(this.level.backgrounds);
+        this.addToMap(this.level.clouds);
+        this.addObjectsToMap(this.level.enemies);
         this.addToMap(this.character);
 
         this.ctx.translate(-this.cameraX, 0);
@@ -42,7 +40,19 @@ class World {
 
     addObjectsToMap(obj) {
         obj.forEach(o => {
+            if (obj.otherDirection) {
+            this.ctx.save();
+            this.ctx.translate(mo.width, 0);
+            this.ctx.scale(-1, 1);
+            mo.x = mo.x * -1;
+            };
+
             this.ctx.drawImage(o.img, o.x, o.y, o.width, o.height);
+
+            if (obj.otherDirection) {
+            mo.x = mo.x * -1;
+            this.ctx.restore();
+            };
         });
     };
 
