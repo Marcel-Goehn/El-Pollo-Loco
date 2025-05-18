@@ -30,5 +30,6 @@ const level1 = new Level(
         new Background(719 * 3, 400, 720, "../../assets/img/5_background/layers/3_third_layer/2.png"),
         new Background(719 * 3, 400, 720, "../../assets/img/5_background/layers/2_second_layer/2.png"),
         new Background(719 * 3, 400, 720, "../../assets/img/5_background/layers/1_first_layer/2.png")
-    ]
+    ],
+    new Endboss(2550, -20, 500, 300, 0)
 );

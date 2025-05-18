@@ -34,12 +34,10 @@ class Character extends MoveableObject {
 
         setInterval(() => {
             if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
-                // this.x += this.speed;
-
                 let i = this.currentImage % imagesWalking.length;
                 let path = imagesWalking[i];
                 this.img = this.imageCache[path];
-                this.currentImage++;
+                this.currentImage++;    
             }
         }, 50);
     };
