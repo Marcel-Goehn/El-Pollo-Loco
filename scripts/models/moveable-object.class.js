@@ -26,19 +26,12 @@ class MoveableObject {
     };
 
 
-    animateWalking(imgArr) {
-        setInterval(() => {
-            let i = this.currentImage % imgArr.length;
-            let path = imgArr[i];
-            this.img = this.imageCache[path];
-            this.currentImage++;
-        }, 100);
-    };
-
-
-    moveRight() {
-        
-    };
+    playAnimation(imgArr) {
+        let i = this.currentImage % imgArr.length;
+        let path = imgArr[i];
+        this.img = this.imageCache[path];
+        this.currentImage++;
+    }
 
 
     chickensAndCloudsMovingLeft() {

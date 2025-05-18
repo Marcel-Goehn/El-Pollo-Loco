@@ -1,4 +1,4 @@
-class Chicken extends MoveableObject{
+class Chicken extends MoveableObject {
 
     chickensWalking = [
         'assets/img/3_enemies_chicken/chicken_normal/1_walk/1_w.png',
@@ -13,6 +13,12 @@ class Chicken extends MoveableObject{
         this.loadImage("assets/img/3_enemies_chicken/chicken_normal/1_walk/1_w.png");
         this.loadImages(this.chickensWalking);
         this.chickensAndCloudsMovingLeft();
-        this.animateWalking(this.chickensWalking);
+        this.chickenAnimateWalking(this.chickensWalking);
+    };
+
+    chickenAnimateWalking(imgArr) {
+        setInterval(() => {
+            this.playAnimation(imgArr);
+        }, 100);
     };
 };

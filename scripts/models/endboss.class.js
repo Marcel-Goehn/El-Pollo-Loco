@@ -1,6 +1,6 @@
 class Endboss extends MoveableObject {
 
-    endBossWalking = [
+    endBossAngry = [
         '../../assets/img/4_enemie_boss_chicken/2_alert/G5.png',
         '../../assets/img/4_enemie_boss_chicken/2_alert/G6.png',
         '../../assets/img/4_enemie_boss_chicken/2_alert/G7.png',
@@ -16,5 +16,13 @@ class Endboss extends MoveableObject {
     constructor(x, y, height, width, speed) {
         super(x, y, height, width, speed);
         this.loadImage('../../assets/img/4_enemie_boss_chicken/2_alert/G5.png');
+        this.loadImages(this.endBossAngry);
+        this.animateEndBoss(this.endBossAngry);
     }
-}
+
+    animateEndBoss(imgArr) {
+        setInterval(() => {
+            this.playAnimation(imgArr);
+        }, 200);
+    };
+};
