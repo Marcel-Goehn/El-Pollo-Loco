@@ -1,6 +1,7 @@
 class World {
 
     character = new Character(100, 100, 350, 150, 5);
+
     level = level1;
     cameraX = 0;
 
