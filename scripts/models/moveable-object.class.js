@@ -36,11 +36,14 @@ class MoveableObject {
     }
 
 
-    chickensAndCloudsMovingLeft() {
-        setInterval(() => {
-            this.x -= this.speed;
-        }, 1000 / 60);
-    };
+    moveLeft() {
+        this.x -= this.speed;
+    }
+
+
+    moveRight() {
+        this.x += this.speed;
+    }
 
 
     applyGravity() {
