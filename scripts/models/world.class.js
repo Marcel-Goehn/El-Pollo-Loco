@@ -19,16 +19,16 @@ class World {
         setInterval(() => {
             this.level.enemies.forEach(enemy => {
                 if (this.character.isColliding(enemy)) {
-                    console.log('Collision with caracter ', enemy);
+                    this.character.hit();
                 };
             });
         }, 1000);
-    }
+    };
 
 
     setWorld() {
         this.character.world = this;
-    }
+    };
 
 
     drawWorld() {
