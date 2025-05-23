@@ -1,6 +1,7 @@
 class World {
 
     character = new Character(100, 100, 350, 150, 5);
+    statusBar = new StatusBar(40, 0, 60, 200);
 
     level = level1;
     cameraX = 0;
@@ -20,6 +21,7 @@ class World {
             this.level.enemies.forEach(enemy => {
                 if (this.character.isColliding(enemy)) {
                     this.character.hit();
+                    this.statusBar.setPercentage(this.character.hp);
                 };
             });
         }, 1000);
@@ -41,6 +43,11 @@ class World {
         this.addObjectsToMap(this.level.enemies);
         this.addToMap(this.level.endboss);
         this.addToMap(this.character);
+
+        this.ctx.translate(-this.cameraX, 0); //Backwards
+        // ----- Space for fixed objects -----
+        this.addToMap(this.statusBar);
+        this.ctx.translate(this.cameraX, 0); // Forwards
 
         this.ctx.translate(-this.cameraX, 0);
 

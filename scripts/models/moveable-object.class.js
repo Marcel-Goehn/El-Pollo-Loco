@@ -1,5 +1,4 @@
-class MoveableObject {
-    imageCache = {};
+class MoveableObject extends DrawableObject{
     otherDirection = false;
     speedY = 0;
     acceleration = 0.25;
@@ -7,26 +6,8 @@ class MoveableObject {
     lastHit = 0;
 
     constructor(x, y, height, width, speed) {
-        this.x = x;
-        this.y = y;
-        this.height = height;
-        this.width = width;
+        super(x, y, height, width);
         this.speed = speed;
-    };
-
-
-    loadImage(path) {
-        this.img = new Image();
-        this.img.src = path;
-    };
-
-
-    loadImages(arr) {
-        arr.forEach(path => {
-            let img = new Image();
-            img.src = path;
-            this.imageCache[path] = img;
-        });
     };
 
 
@@ -60,22 +41,6 @@ class MoveableObject {
 
     isAboveGround() {
         return this.y < 100;
-    };
-
-
-    draw(ctx) {
-        ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
-    };
-
-
-    drawBorder(ctx) {
-        if (this instanceof Character || this instanceof Chicken) {
-            ctx.beginPath();
-            ctx.lineWidth = '5';
-            ctx.strokeStyle = 'blue';
-            ctx.rect(this.x, this.y, this.width, this.height);
-            ctx.stroke();
-        };
     };
 
 
