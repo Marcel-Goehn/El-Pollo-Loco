@@ -2,6 +2,7 @@ class World {
 
     character = new Character(100, 100, 350, 150, 5);
     statusBar = new StatusBar(40, 0, 60, 200);
+    throwableObject = [new ThrowableObject(100, 100, 100, 100)];
 
     level = level1;
     cameraX = 0;
@@ -12,19 +13,33 @@ class World {
         this.keyboard = keyboard;
         this.setWorld();
         this.drawWorld();
-        this.checkCollisions();
+        this.run();
+    };
+
+
+    run() {
+        setInterval(() => {
+            this.checkCollisions();
+            this.checkThrowObjects();
+        }, 1000);
     };
 
 
     checkCollisions() {
-        setInterval(() => {
-            this.level.enemies.forEach(enemy => {
-                if (this.character.isColliding(enemy)) {
-                    this.character.hit();
-                    this.statusBar.setPercentage(this.character.hp);
-                };
-            });
-        }, 1000);
+        this.level.enemies.forEach(enemy => {
+            if (this.character.isColliding(enemy)) {
+                this.character.hit();
+                this.statusBar.setPercentage(this.character.hp);
+            };
+        });
+    };
+
+
+    checkThrowObjects() {
+        if(this.keyboard.D) {
+            let bottle = new ThrowableObject(this.character.x, this.character.y, 100, 100);
+            this.throwableObject.push(bottle);
+        }
     };
 
 
@@ -43,6 +58,7 @@ class World {
         this.addObjectsToMap(this.level.enemies);
         this.addToMap(this.level.endboss);
         this.addToMap(this.character);
+        this.addObjectsToMap(this.throwableObject);
 
         this.ctx.translate(-this.cameraX, 0); //Backwards
         // ----- Space for fixed objects -----

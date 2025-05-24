@@ -1,3 +1,22 @@
 canvas {
     background-color: black;
 }
+
+body {
+    background-image: url(./assets/img/body-background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'kablammo', Arial, Helvetica, sans-serif;
+}
+
+@font-face {
+    font-family: 'kablammo';
+    src: url(./assets/fonts/kablammo.ttf);
+}
+
+h1 {
+    font-size: 3rem;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
