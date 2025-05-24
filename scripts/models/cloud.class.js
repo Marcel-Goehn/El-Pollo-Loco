@@ -4,11 +4,4 @@ class Cloud extends MoveableObject{
         this.loadImage('../../assets/img/5_background/layers/4_clouds/full.png');
         this.animate();
     };
-
-
-    animate() {
-        setInterval(() => {
-            this.moveLeft();
-        }, 1000 / 60);
-    }
 };

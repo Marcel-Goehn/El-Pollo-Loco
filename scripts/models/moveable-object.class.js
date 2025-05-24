@@ -1,4 +1,4 @@
-class MoveableObject extends DrawableObject{
+class MoveableObject extends DrawableObject {
     otherDirection = false;
     speedY = 0;
     acceleration = 0.25;
@@ -10,15 +10,19 @@ class MoveableObject extends DrawableObject{
         this.speed = speed;
     };
 
-    
-    animate(walking) {
-        setInterval(() => {
-            this.moveLeft();
-        }, 1000 / 60);
 
-        setInterval(() => {
-            this.playAnimation(walking);
-        }, 100);
+    animate(walking) {
+        if (!(this instanceof Coin)) {
+            setInterval(() => {
+                this.moveLeft();
+            }, 1000 / 60);
+        }
+
+        if (!(this instanceof Cloud)) {
+            setInterval(() => {
+                this.playAnimation(walking);
+            }, 100);
+        };
     };
 
 
@@ -76,16 +80,16 @@ class MoveableObject extends DrawableObject{
 
     // character.isColliding(chicken);
     isColliding(mo) {
-        return this.x + this.width > mo.x && 
-            this.y + this.height > mo.y && 
-            this.x < mo.x + mo.width && 
+        return this.x + this.width > mo.x &&
+            this.y + this.height > mo.y &&
+            this.x < mo.x + mo.width &&
             this.y < mo.y + mo.height
     };
 
 
     hit() {
         this.hp -= 5;
-        if(this.hp < 0) {
+        if (this.hp < 0) {
             this.hp = 0;
         }
         else {
