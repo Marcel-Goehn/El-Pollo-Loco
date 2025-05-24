@@ -1,5 +1,6 @@
 canvas {
     background-color: black;
+    display: block;
 }
 
 body {
@@ -19,4 +20,19 @@ h1 {
     font-size: 3rem;
     letter-spacing: 3px;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+@media only screen and (max-width: 720px) {
+    canvas {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-height: 480px) {
+    h1 {
+        display: none;
+    }
+    canvas {
+        height: 100dvh;
+    }
 }
