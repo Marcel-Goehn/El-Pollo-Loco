@@ -10,6 +10,17 @@ class MoveableObject extends DrawableObject{
         this.speed = speed;
     };
 
+    
+    animate(walking) {
+        setInterval(() => {
+            this.moveLeft();
+        }, 1000 / 60);
+
+        setInterval(() => {
+            this.playAnimation(walking);
+        }, 100);
+    };
+
 
     playAnimation(imgArr) {
         let i = this.currentImage % imgArr.length;

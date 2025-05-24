@@ -56,6 +56,7 @@ class World {
         this.addObjectsToMap(this.level.backgrounds);
         this.addToMap(this.level.clouds);
         this.addObjectsToMap(this.level.enemies);
+        this.addObjectsToMap(this.level.smallEnemies);
         this.addToMap(this.level.endboss);
         this.addToMap(this.character);
         this.addObjectsToMap(this.throwableObject);
